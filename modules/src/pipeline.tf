@@ -1,8 +1,3 @@
-#Create AWS Connection to Github
-resource "aws_codestarconnections_connection" "test-codestar" {
-  name          = "test-codestar"
-  provider_type = "GitHub"
-}
 # Create a CodePipeline
 resource "aws_codepipeline" "test-pipeline" {
     name = "test-pipeline"
@@ -26,7 +21,7 @@ resource "aws_codepipeline" "test-pipeline" {
             configuration = {
                 FullRepositoryId = "kalabi1/aws-pipeline"
                 BranchName   = "main"
-                ConnectionArn = aws_codestarconnections_connection.test-codestar.arn
+                ConnectionArn = var.test-codestar
                 OutputArtifactFormat = "CODE_ZIP"
             }
         }
