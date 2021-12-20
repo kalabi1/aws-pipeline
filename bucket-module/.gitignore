@@ -1,0 +1,10 @@
+../bucket-module/.terraform.lock.hcl
+../bucket-module/.terraform/
+../bucket-module/terraform.tfstate
+../bucket-module/terraform.tfstate.backup
+ .terraform.lock.hcl
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+
