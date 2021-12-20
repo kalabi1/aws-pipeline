@@ -1,3 +1,8 @@
+#Create AWS Connection to Github
+resource "aws_codestarconnections_connection" "test-codestar" {
+  name          = "test-codestar"
+  provider_type = "GitHub"
+}
 # Create a CodePipeline
 resource "aws_codepipeline" "test-pipeline" {
     name = "test-pipeline"
@@ -5,7 +10,7 @@ resource "aws_codepipeline" "test-pipeline" {
 
     artifact_store {
         type    =  "S3"
-        location = aws_s3_bucket.codepipeline-artifacts.id
+        location = aws_s3_bucket.code-pipe-artifacts.id
     }
     
     #Pull Source Code from Github

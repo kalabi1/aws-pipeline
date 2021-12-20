@@ -87,7 +87,7 @@ data "aws_iam_policy_document" "test-codebuild-json" {
 
 #Create Policy for CodeBuild
 resource "aws_iam_policy" "test-codebuild-policy" {
-    name = "test-cicd-build-policy"
+    name = "test-codebuild-policy"
     path = "/"
     description = "Codebuild policy"
     policy = data.aws_iam_policy_document.test-codebuild-json.json
@@ -100,5 +100,5 @@ resource "aws_iam_role_policy_attachment" "test-codebuild-attachment1" {
 
 resource "aws_iam_role_policy_attachment" "test-codebuild-attachment2" {
     policy_arn  = "arn:aws:iam::aws:policy/PowerUserAccess"
-    role        = aws_iam_role.test1-codebuild-role.id
+    role        = aws_iam_role.test-codebuild-role.id
 }
