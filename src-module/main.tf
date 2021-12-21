@@ -1,6 +1,6 @@
-module "src" {
-    source = "../"
-}
-provider "aws" {
-    region = "eu-west-2"
-}
+# module "src" {
+#     source = "../"
+# }
+# provider "aws" {
+#     region = "eu-west-2"
+# }
