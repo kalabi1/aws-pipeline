@@ -17,5 +17,5 @@ variable "repo_name" {
   default = "aws-pipeline"
 }
 variable "repo_id" {
-  default = "kalabi/aws-pipeline"
+  default = "kalabi1/aws-pipeline"
 }
