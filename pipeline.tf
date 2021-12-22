@@ -14,16 +14,22 @@ resource "aws_codepipeline" "test-pipeline" {
     action {
       name             = "Source"
       category         = "Source"
-      owner            = "AWS"
-      provider         = "CodeStarSourceConnection"
-      version          = "1"
       output_artifacts = ["tf-code"]
+       owner     = "AWS"
+      provider  = "CodeStarSourceConnection"
+      run_order = 1
+      version   = "1"
+
+
       configuration = {
-        FullRepositoryId     = "kalabi1/aws-pipeline"
-        BranchName           = "main"
+        FullRepositoryId = var.repo_id
+        BranchName     =   var.repo_branch
+        # OAuthToken           = var.github_token
         ConnectionArn        = var.codestar_connection
-        OutputArtifactFormat = "CODE_ZIP"
       }
+
+
+
     }
   }
   # Plan the resource to be applied in the next stage

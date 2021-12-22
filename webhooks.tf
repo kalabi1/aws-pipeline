@@ -1,6 +1,7 @@
-locals {
-  webhook_secret = "super-secret"
-}
+
+# locals {
+#   SUPER_SECRET = "SUPER_SECRET"
+# }
 
 # Create Pipeline Wobhook trigger
 resource "aws_codepipeline_webhook" "test-webhook" {
@@ -10,7 +11,7 @@ resource "aws_codepipeline_webhook" "test-webhook" {
   target_pipeline = aws_codepipeline.test-pipeline.name
 
   authentication_configuration {
-    secret_token = local.webhook_secret
+    secret_token = var.github_token
   }
 
   filter {
@@ -21,13 +22,12 @@ resource "aws_codepipeline_webhook" "test-webhook" {
 
 # Create the CodePipeline webhook into a GitHub repository.
 resource "github_repository_webhook" "test-webhook" {
-  repository = "kalabi1/aws-pipeline"
-
+  repository = var.repo_id
   configuration {
     url          = aws_codepipeline_webhook.test-webhook.url
     content_type = "json"
     insecure_ssl = true
-    secret       = local.webhook_secret
+    secret       = var.github_token
   }
 
   events = ["push"]
