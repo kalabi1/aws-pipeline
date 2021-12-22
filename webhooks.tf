@@ -5,7 +5,7 @@ locals {
 # Create Pipeline Wobhook trigger
 resource "aws_codepipeline_webhook" "test-webhook" {
   name            = "test-webhook"
-  authentication  = "UNAUTHENTICATED"
+  authentication  = "GITHUB_HMAC"
   target_action   = "Source"
   target_pipeline = aws_codepipeline.test-pipeline.name
 
