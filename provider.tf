@@ -16,6 +16,9 @@ terraform {
     }
   }
 }
+# credentials_helper "example" {
+#   args = []
+# }
 # credentials "app.terraform.io" {
 #   token = var.terraform_login
 # }
