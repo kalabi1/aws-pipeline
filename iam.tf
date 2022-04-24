@@ -29,7 +29,7 @@ data "aws_iam_policy_document" "test-pipeline-doc" {
   }
   statement {
     sid       = ""
-    actions   = ["cloudwatch:*", "s3:*", "codebuild:*"]
+    actions   = ["cloudwatch:*", "s3:*", "codebuild:*" ,"POST:*"]
     resources = ["*"]
     effect    = "Allow"
   }

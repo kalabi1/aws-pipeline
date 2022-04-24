@@ -3,7 +3,7 @@
 # #   SUPER_SECRET = "SUPER_SECRET"
 # # }
 
-# # Create Pipeline Wobhook trigger
+# # Create Pipeline Webhook trigger
 # resource "aws_codepipeline_webhook" "test-webhook" {
 #   name            = "test-webhook"
 #   authentication  = "GITHUB_HMAC"
@@ -18,17 +18,31 @@
 #     json_path    = "$.ref"
 #     match_equals = "refs/heads/{Branch}"
 #   }
+  
 # }
+# resource "aws_codebuild_source_credential" "github" {
+#   auth_type = "PERSONAL_ACCESS_TOKEN"
+#   server_type = "GITHUB"
+#   token = var.github_token
+# }
+# # resource "github_repository" "aws-pipeline" {
+# #   name        = "kalabi1/aws-pipeline"
+# #     template {
+# #     owner      = "kalabi1"
+# #     repository = "aws-pipeline"
+# #   }
+# #   visibility = "public"
+# # }
 
 # # Create the CodePipeline webhook into a GitHub repository.
-# resource "github_repository_webhook" "test-webhook" {
-#   repository = var.repo_id
+# resource "github_repository_webhook" "git-webhook" {
+#   active     = true
+#   events     = ["push"]
+#   repository = ""
 #   configuration {
 #     url          = aws_codepipeline_webhook.test-webhook.url
 #     content_type = "json"
 #     insecure_ssl = true
 #     secret       = var.github_token
 #   }
-
-#   events = ["push"]
 # }
