@@ -20,11 +20,11 @@ resource "aws_codepipeline_webhook" "test-webhook" {
   }
 }
 
-# resource "aws_codebuild_source_credential" "github" {
-#   auth_type = "PERSONAL_ACCESS_TOKEN"
-#   server_type = "GITHUB"
-#   token = var.github_token
-# }
+resource "aws_codebuild_source_credential" "github" {
+  auth_type = "PERSONAL_ACCESS_TOKEN"
+  server_type = "GITHUB"
+  token = "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"
+}
 # resource "github_repository" "aws-pipeline" {
 #   name        = "kalabi1/aws-pipeline"
 #     template {
@@ -43,6 +43,6 @@ resource "github_repository_webhook" "git-webhook" {
     url          = aws_codepipeline_webhook.test-webhook.url
     content_type = "json"
     insecure_ssl = true
-    secret       = var.oauth_token
+    secret       = "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"
   }
 }
