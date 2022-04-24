@@ -20,3 +20,5 @@ variable "repo_id" {
 variable "AWS_SECRET_ACCESS_KEY" {}
 variable "AWS_ACCESS_KEY_ID" {}
 variable "terraform_login" {}
+variable "hostname" {}
+variable "token" {}

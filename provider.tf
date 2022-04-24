@@ -16,6 +16,11 @@ terraform {
     }
   }
 }
+provider "tfe" {
+  hostname = var.hostname
+  token    = var.token
+  # version  = "~> 0.30.2"
+}
 # credentials_helper "example" {
 #   args = []
 # }
