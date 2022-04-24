@@ -16,9 +16,9 @@ terraform {
     }
   }
 }
-credentials "app.terraform.io" {
-  token = var.terraform_login
-}
+# credentials "app.terraform.io" {
+#   token = var.terraform_login
+# }
 
   terraform {
       backend "remote" {
