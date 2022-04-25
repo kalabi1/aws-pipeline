@@ -17,8 +17,8 @@ variable "repo_name" {
 variable "repo_id" {
   default = "kalabi1/aws-pipeline"
 }
-variable "AWS_SECRET_ACCESS_KEY" {}
-variable "AWS_ACCESS_KEY_ID" {}
-variable "terraform_login" {}
-variable "hostname" {}
-variable "TF_CLI_CONFIG_FILE" {}
+# variable "AWS_SECRET_ACCESS_KEY" {}
+# variable "AWS_ACCESS_KEY_ID" {}
+# variable "terraform_login" {}
+# variable "hostname" {}
+# variable "TF_CLI_CONFIG_FILE" {}
