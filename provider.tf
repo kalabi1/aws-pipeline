@@ -41,6 +41,7 @@ provider "tfe" {
     }
 provider "aws" {
   region = "eu-west-2"
+  token = var.TF_CLI_CONFIG_FILE
   # access_key = var.TF_SECRET_KEY
   # secret_key  = var.TF_ACCESS_KEY
 }
