@@ -11,7 +11,7 @@ resource "aws_codepipeline_webhook" "test-webhook" {
   target_pipeline = aws_codepipeline.test-pipeline.name
 
   authentication_configuration {
-    secret_token = var.oauth_token
+    secret_token = "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"
   }
 
   filter {
